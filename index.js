@@ -68,6 +68,25 @@ function pauseMusic() {
     music.pause();
 }
 
+document.body.onkeydown = function(e) {
+    if (e.key== " " || e.code== "Space" ||
+               e.keyCode== 32)
+               {
+                if (isPlaying) {
+                    pauseMusic();
+                } else {
+                    playMusic();
+                }
+               }
+    if (e.key== "ArrowRight"){
+        changeMusic(1);
+    }
+        
+    if (e.key== "ArrowLeft"){
+                changeMusic(-1);
+    }
+}
+
 function loadMusic(song) {
     music.src = song.path;
     title.textContent = song.displayName;
